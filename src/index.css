@@ -1,0 +1,11 @@
+.cardHighlight {
+  min-height: 100%;
+}
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s ease-in-out;
+}
+.cardHighlight a:hover {
+  color: #007bff; /* or any color you prefer */
+  text-decoration: underline;
+}
