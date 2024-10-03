@@ -5,6 +5,7 @@ import EditMovie from "./EditMovie";
 
 export default function AdminView({ fetchData, moviesData }) {
   const [movies, setMovies] = useState([]);
+  console.log(movies);
 
   useEffect(() => {
     // Set the products state with the imported moviesData
@@ -20,6 +21,8 @@ export default function AdminView({ fetchData, moviesData }) {
             <th>ID</th>
             <th>Movie</th>
             <th>Director</th>
+            <th>Description</th>
+
             <th>Release Year</th>
             <th>Genre</th>
             <th colSpan="2">Actions</th>
@@ -31,19 +34,11 @@ export default function AdminView({ fetchData, moviesData }) {
               <td>{movie._id}</td>
               <td>{movie.title}</td>
               <td>{movie.director}</td>
+              <td>{movie.description}</td>
               <td>{movie.year}</td>
               <td>{movie.genre}</td>
-
-              {/* <td className={`text-${movie.isActive ? "success" : "danger"}`}>
-                {product.isActive ? "Available" : "Unavailable"}
-              </td> */}
               <td className="text-center">
                 <EditMovie movie={movie} fetchData={fetchData} />
-                {/* <ArchiveProduct
-                  productId={product._id}
-                  isActive={product.isActive}
-                  fetchData={fetchData}
-                /> */}
               </td>
             </tr>
           ))}

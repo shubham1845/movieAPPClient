@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../context/UserContext";
 
+import { Notyf } from "notyf";
+import "notyf/notyf.min.css";
+
 export default function AppNavBar() {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
@@ -33,7 +36,7 @@ export default function AppNavBar() {
             </Nav.Link>
 
             {user?.isAdmin && (
-              <Nav.Link as={NavLink} to="/addMovie" className="nav-link">
+              <Nav.Link as={NavLink} to="/add-movie" className="nav-link">
                 Add Movie
               </Nav.Link>
             )}

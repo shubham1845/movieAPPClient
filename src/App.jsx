@@ -9,6 +9,7 @@ import Container from "react-bootstrap/Container";
 import AppNavBar from "./components/AppNavBar";
 import MoviesPage from "./pages/MoviesPage";
 import Logout from "./pages/Logout";
+import AddMovie from "./pages/AddMovie";
 
 import Home from "./pages/Home";
 
@@ -89,6 +90,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/movies" element={<MoviesPage />} />
               <Route path="/logout" element={<Logout />} />
+              <Route path="/add-movie" element={<AddMovie />} />
             </Routes>
           </Container>
         </Router>

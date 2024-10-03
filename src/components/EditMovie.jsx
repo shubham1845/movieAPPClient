@@ -10,6 +10,9 @@ export default function EditMovie({ movie, fetchData }) {
   const [title, setTitle] = useState(movie.title);
   const [director, setDirector] = useState(movie.director);
   const [year, setYear] = useState(movie.year);
+  const [description, setDescription] = useState(movie.description);
+  const [genre, setGenre] = useState(movie.genre);
+  //   const [isActive, setIsActive] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
 
   // Edit movie handler
@@ -25,11 +28,13 @@ export default function EditMovie({ movie, fetchData }) {
         title: title,
         director: director,
         year: year,
+        description: description,
+        genre: genre,
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.success) {
+        if (data.message === "Movie updated successfully!") {
           notyf.success("Successfully Updated");
           fetchData(); // Refresh the movie list
         } else {
@@ -59,7 +64,7 @@ export default function EditMovie({ movie, fetchData }) {
   return (
     <>
       <Button variant="primary" size="sm" onClick={openEdit}>
-        Edit
+        Update
       </Button>
       <Modal show={showEdit} onHide={closeEdit}>
         <Form onSubmit={editmovie}>
@@ -92,6 +97,26 @@ export default function EditMovie({ movie, fetchData }) {
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
                 required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Description:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Description"
+                required
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Genre:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Genre"
+                required
+                value={genre}
+                onChange={(e) => setGenre(e.target.value)}
               />
             </Form.Group>
           </Modal.Body>
